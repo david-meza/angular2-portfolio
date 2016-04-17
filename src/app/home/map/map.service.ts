@@ -1,16 +1,19 @@
-import {Injectable} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Injectable}       from 'angular2/core';
+import {Http, Response}   from 'angular2/http';
+import {Observable}       from 'rxjs/Observable';
 
 @Injectable()
 export class MapService {
   
-  constructor(public http: Http) {
+  constructor(private http: Http) {}
 
-  }
+  private _wazeDataUrl = '/assets/data.json';
 
-  getData() {
+  getData(): Observable<any[]> {
     console.log('Map#getData(): Get Data');
-    return this.http.get('/assets/data.json').map(res => res.json());
+    return this.http.get(this._wazeDataUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
   }
 
   initMap() {
@@ -28,6 +31,20 @@ export class MapService {
 
   _googleIsReady() {
     return Promise.resolve(window.google);
+  }
+
+  private extractData(res: Response) {
+    if (res.status < 200 || res.status >= 300) {
+      throw new Error('Bad response status: ' + res.status);
+    }
+    let body = res.json();
+    return body.jams || [];
+  }
+
+  private handleError(error: any) {
+    let errMsg = error.message || 'Server error';
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 
 }

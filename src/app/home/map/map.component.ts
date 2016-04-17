@@ -15,6 +15,9 @@ import {MapService} from './map.service';
 export class Map {
   
   public wazeData;
+
+  errorMessage: string;
+  jams: any[];
   
   constructor(public MapService: MapService) {
 
@@ -24,7 +27,10 @@ export class Map {
     console.log('load map component');
     this.MapService.initMap();
 
-    this.wazeData = this.MapService.getData();
-    console.log(this.wazeData);
+    this.MapService.getData()
+                   .subscribe(
+                     jams => this.jams = jams,
+                     error => this.errorMessage = <any>error);
+    
   }
 }
