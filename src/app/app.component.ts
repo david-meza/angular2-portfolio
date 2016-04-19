@@ -79,8 +79,8 @@ import {RouterActive} from './router-active';
 ])
 export class App {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
-  url = 'https://twitter.com/AngularClass';
+  name = 'Waze Real-Time Data';
+  url = 'https://github.com/david-meza/waze-poc';
 
   constructor(public appState: AppState) {}
 
