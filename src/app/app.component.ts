@@ -21,66 +21,40 @@ import {RouterActive} from './router-active';
   styles: [
     require('normalize.css'),
     `
-    md-toolbar ul {
-      display: inline;
-      list-style-type: none;
-      margin: 0;
+    md-toolbar h1 {
+      color: rgba(255, 255, 255, 0.87);
+      font-size: 18px;
+    }
+
+    app {
+      height: 100%;
+      display: block;
+    } 
+
+    body, html {
+      height: 100%;
+      width: 100%;
       padding: 0;
-      width: 60px;
-    }
-    md-toolbar li {
-      display: inline;
-    }
-    md-toolbar li.active {
-      background-color: lightgray;
+      margin: 0;
     }
   `],
   template: `
-    <header>
-      <md-toolbar color="primary">
-        <span>{{ name }}</span>
-        <nav>
-          <ul>
-            <li router-active>
-              <a [routerLink]=" ['Index'] ">Index</a>
-            </li>
-            |
-            <li router-active>
-              <a [routerLink]=" ['Home'] ">Home</a>
-            </li>
-            |
-            <li router-active>
-              <a [routerLink]=" ['About'] ">About</a>
-            </li>
-          </ul>
-        </nav>
-      </md-toolbar>
-    </header>
+    <md-toolbar color="primary">
+      <h1>{{ name }}</h1>
+    </md-toolbar>
 
     <main>
       <router-outlet></router-outlet>
     </main>
-
-    <pre>this.appState.state = {{ appState.state | json }}</pre>
-
-    <footer>
-      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
-      <div>
-        <img [src]="angularclassLogo" width="10%">
-      </div>
-    </footer>
   `
 })
 @RouteConfig([
   { path: '/',      name: 'Index', component: Home, useAsDefault: true },
   { path: '/home',  name: 'Home',  component: Home },
-  // Async load a component using Webpack's require with es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') }
 ])
 export class App {
-  angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Waze Real-Time Data';
-  url = 'https://github.com/david-meza/waze-poc';
+  public name = 'Waze Real-Time Data';
+  public url = 'https://github.com/david-meza/waze-poc';
 
   constructor(public appState: AppState) {}
 
@@ -89,11 +63,3 @@ export class App {
   }
 
 }
-
-/*
- * Please review the https://github.com/AngularClass/angular2-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */

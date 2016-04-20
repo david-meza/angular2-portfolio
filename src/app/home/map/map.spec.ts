@@ -11,9 +11,9 @@ import {BaseRequestOptions, Http} from 'angular2/http';
 import {MockBackend} from 'angular2/http/testing';
 
 
-import {Title} from './title.service';
+import {MapService} from './map.service';
 
-describe('Title', () => {
+describe('Map', () => {
   beforeEachProviders(() => [
     BaseRequestOptions,
     MockBackend,
@@ -24,21 +24,21 @@ describe('Title', () => {
       deps: [MockBackend, BaseRequestOptions]
     }),
 
-    Title
+    Map
   ]);
 
 
-  it('should have http', inject([ Title ], (title) => {
-    expect(!!title.http).toEqual(true);
+  it('should have http', inject([ Map ], (map) => {
+    expect(!!map.http).toEqual(true);
   }));
 
-  it('should get data from the server', inject([ Title ], (title) => {
+  it('should get data from the server', inject([ Map ], (map) => {
     spyOn(console, 'log');
     expect(console.log).not.toHaveBeenCalled();
 
-    title.getData();
+    map.getData();
     expect(console.log).toHaveBeenCalled();
-    expect(title.getData()).toEqual({ value: 'AngularClass' });
+    expect(map.getData()).toEqual({ value: 'AngularClass' });
   }));
 
 });
