@@ -18,39 +18,13 @@ import {RouterActive} from './router-active';
   providers: [ ],
   directives: [ RouterActive ],
   encapsulation: ViewEncapsulation.None,
-  styles: [
-    require('normalize.css'),
-    `
-    md-toolbar h1 {
-      color: rgba(255, 255, 255, 0.87);
-      font-size: 18px;
-    }
-
-    app {
-      height: 100%;
-      display: block;
-    } 
-
-    body, html {
-      height: 100%;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-    }
-  `],
-  template: `
-    <md-toolbar color="primary">
-      <h1>{{ name }}</h1>
-    </md-toolbar>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  `
+  styles: [ require('normalize.css'), require('./app.css')],
+  template: require('./app.html')
 })
 @RouteConfig([
   { path: '/',      name: 'Index', component: Home, useAsDefault: true },
-  { path: '/home',  name: 'Home',  component: Home },
+  { path: '/home',  name: 'Home',  component: Home }
+  // { path: '/blog',  name: 'Blog',  component: Blog }
 ])
 export class App {
   public name = 'David Meza';

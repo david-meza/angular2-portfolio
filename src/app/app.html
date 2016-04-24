@@ -1,0 +1,38 @@
+<md-sidenav-layout>
+  <md-sidenav #start mode="side" align="start" opened="true" (open)="mybutton.focus()">
+    <md-toolbar color="primary">
+      <h1>{{ name }}</h1>
+    </md-toolbar>
+    <button md-button #mybutton (click)="start.close()">Close</button>
+
+    <ul>
+      <li>List Item</li>
+      <li>List Item with super duper ultra mega extremely long name</li>
+      <li>List Item</li>
+      <li>List Item with super duper ultra mega extremely long name</li>
+      <li>List Item</li>
+      <li>List Item with super duper ultra mega extremely long name</li>
+      <li>List Item</li>
+      <li>List Item with super duper ultra mega extremely long name</li>
+      <li>List Item</li>
+      <li>List Item with super duper ultra mega extremely long name</li>
+      <li>List Item</li>
+      <li>List Item with super duper ultra mega extremely long name</li>
+      <li>List Item</li>
+      <li>List Item with super duper ultra mega extremely long name plus some Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime sunt temporibus consequatur ratione cumque, consectetur provident tempora ad doloremque possimus hic nostrum, quo magnam minima iusto eum beatae aperiam est.</li>
+    </ul>
+  </md-sidenav>
+  <md-sidenav #end align="end">
+    End Sidenav.
+    <button md-button (click)="end.close()">Close</button>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <h1>{{ name }}</h1>
+  </md-toolbar>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</md-sidenav-layout>
+
