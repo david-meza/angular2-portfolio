@@ -36,7 +36,7 @@ export class MapService {
       
       setInterval(() => {
         georssLayer.setUrl(this._wazeDataUrl);
-      }, 10000);
+      }, 60000);
 
     });
   }
