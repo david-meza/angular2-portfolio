@@ -1,3 +1,3 @@
-# Waze POC
+# Angular 2 Portfolio
 
-Proof of concept for waze real time data mapping
+An updated portfolio page using Angular 2 and Google's Material Design.

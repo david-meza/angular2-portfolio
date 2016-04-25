@@ -53,8 +53,8 @@ import {RouterActive} from './router-active';
   { path: '/home',  name: 'Home',  component: Home },
 ])
 export class App {
-  public name = 'Waze Real-Time Data';
-  public url = 'https://github.com/david-meza/waze-poc';
+  public name = 'David Meza';
+  public url = 'https://github.com/david-meza/angular2-portfolio';
 
   constructor(public appState: AppState) {}
 

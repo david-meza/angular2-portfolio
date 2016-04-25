@@ -1,9 +1,9 @@
 {
-  "name": "angular2-webpack-starter",
-  "version": "5.0.4",
-  "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
-  "homepage": "https://github.com/angularclass/angular2-webpack-starter",
+  "name": "material-portfolio",
+  "version": "0.0.1",
+  "description": "An Angular 2 Porfolio using Angular Material",
+  "author": "David Meza",
+  "homepage": "https://github.com/david-meza/angular2-portfolio",
   "license": "MIT",
   "scripts": {
     "rimraf": "rimraf",
